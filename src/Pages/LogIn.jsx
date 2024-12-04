@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -6,13 +6,14 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const LogIn = () => {
     const {googleLogIn,logInWithEmail}=useContext(AuthContext)
     const navigate = useNavigate()
+   
 
     const handleGoogleLogIn= ()=>{
          googleLogIn()
          .then(result=>{
            navigate('/')
          }).catch(error=>{
-            console.log(error.code)
+            setShowError(error.code)
          })
     }
 
@@ -25,7 +26,7 @@ const LogIn = () => {
         .then(result=>{
             navigate('/')
         }).catch(error=>{
-            console.log(error)
+            setShowError(error)
         })
     }
 
@@ -50,6 +51,7 @@ const LogIn = () => {
                                 <Link to='/forgetPass' className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>

@@ -63,10 +63,14 @@ const Header = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end ">
                 {
-                    user ? <div>
+                    user ? <div className='flex justify-center items-center gap-2'>
                         <button onClick={handleLogOut} className='btn btn-outline btn-primary text-white font-bold'><span className='text-black'>log Out</span></button>
+                        <div>
+                            {user?.photoURL? <img className='w-12 h-12 rounded-full object-cover' src={user?. photoURL} alt="" /> :<LuCircleUserRound /> }
+                        </div>
+                        
 
                     </div>
                         :
