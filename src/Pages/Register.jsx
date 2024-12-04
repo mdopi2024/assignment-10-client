@@ -4,17 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { registerWithEmal,googleLogIn } = useContext(AuthContext)
+    const { registerWithEmal,googleLogIn,updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate()
     const [showErr, setShowErr] = useState('')
-    console.log(showErr)
 
     const handleGoogleLogIn = () => {
         googleLogIn()
             .then(result => {
                 navigate('/')
             }).catch(error => {
-                console.log(error.code)
+               setShowErr(error.code)
             })
     }
 
@@ -34,6 +33,12 @@ const Register = () => {
         }
         registerWithEmal(email, password)
             .then(result => {
+                updateUserProfile({displayName:name,  photoURL:photo})
+                .then(result=>{
+                    console.log(result)
+                }).catch(error=>{
+                    setShowErr(error.code)
+                })
                 navigate('/')
             }).catch(error => {
                 console.log(error.code)
