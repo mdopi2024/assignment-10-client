@@ -1,0 +1,67 @@
+import React, { createContext, useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { app } from '../firebase/firebase.init';
+
+
+export const AuthContext = createContext(null)
+const AuthProvider = ({ children }) => {
+
+    const auth = getAuth(app);
+    const gooleProvider = new GoogleAuthProvider;
+    const [user, setUser] = useState(null)
+    const [loader,setLoader]=useState(true)
+    console.log(user)
+
+    const googleLogIn = () => {
+        setLoader(true)
+        return signInWithPopup(auth, gooleProvider)
+    }
+
+    const registerWithEmal = (email, password) => {
+        setLoader(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const logInWithEmail = (email, password) => {
+        setLoader(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const resetPass =(email)=>{
+        setLoader(true)
+        return sendPasswordResetEmail(auth,email)
+    }
+
+    const singOutUser = () => {
+        setLoader(true)
+        return signOut(auth)
+    }
+
+    useEffect(() => {
+        const unsuscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            setLoader(false)
+        })
+        return () => {
+            unsuscribe()
+        }
+    }, [])
+
+    const authInfo = {
+        user,
+        loader,
+        googleLogIn,
+        singOutUser,
+        registerWithEmal,
+        logInWithEmail,
+        resetPass
+
+    }
+    return (
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
+
+export default AuthProvider;
