@@ -18,12 +18,13 @@ const AddVisa = () => {
         const passpord = form.passpord.value;
         const photograph = form.photograph.value;
         const applicationForm = form.applicationForm.value;
+        const fee = form.fee.value;
         const discrip = form.discrip.value;
         // console.log({name,photo,visaType,age,validity,method,passpord,photograph,applicationForm,discrip})
 
 
         const email = user.email
-        const visa = { name, photo, visaType, time, email,age,validity,method,passpord,photograph,applicationForm,discrip }
+        const visa = { name, photo, visaType, time, email,age,validity,method,passpord,photograph,applicationForm,discrip,fee }
         fetch('http://localhost:5000/visas', {
             method: 'POST',
             headers: {
