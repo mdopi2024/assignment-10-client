@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Modal from '../components/Modal';
 
 const Details = () => {
     const singleVisa = useLoaderData()
     const { name, photo, visaType, time, email, age, validity, method, passpord, photograph, applicationForm, discrip } = singleVisa
     return (
         <div>
+            <div>
+                <Modal></Modal>
+            </div>
             <h1 className='text-center text-3xl md:text-4xl text-blue-700 font-bold my-14'>All details about  {singleVisa.name}</h1>
 
             <div className="hero bg-[#D1E7FD] w-full flex justify-center items-center px-5   md:w-2/3 md:mx-auto border mb-10 ">
@@ -27,7 +31,7 @@ const Details = () => {
 
 
                        <div className='pt-5'>
-                       <Link className="bg-[#007BFF] hover:bg-[#0056B3] mt-5 py-2 px-6 rounded-lg  font-semibold">Apply for the visa</Link>
+                       <button  onClick={() => document.getElementById('my_modal_5').showModal()} className="bg-[#007BFF] hover:bg-[#0056B3] mt-5 py-2 px-6 rounded-lg  font-semibold">Apply for the visa</button>
                        </div>
                     </div>
                 </div>
@@ -36,4 +40,5 @@ const Details = () => {
     );
 };
 
+    
 export default Details;
