@@ -12,8 +12,18 @@ const AddVisa = () => {
         const photo = form.photo.value;
         const visaType = form.visaType.value;
         const time = form.time.value;
+        const age = form.age.value;
+        const validity = form.validity.value;
+        const method = form.method.value;
+        const passpord = form.passpord.value;
+        const photograph = form.photograph.value;
+        const applicationForm = form.applicationForm.value;
+        const discrip = form.discrip.value;
+        // console.log({name,photo,visaType,age,validity,method,passpord,photograph,applicationForm,discrip})
+
+
         const email = user.email
-        const visa = { name, photo, visaType, time, email }
+        const visa = { name, photo, visaType, time, email,age,validity,method,passpord,photograph,applicationForm,discrip }
         fetch('http://localhost:5000/visas', {
             method: 'POST',
             headers: {
@@ -34,9 +44,9 @@ const AddVisa = () => {
             })
     }
     return (
-        <div className='flex flex-col justify-center  items-center py-10'>
-            <h1 className='text-center text-2xl md:text-4xl font-bold my-4'>Add add your visa</h1>
-            <div className="card  w-full max-w-sm shrink-0 shadow-2xl">
+        <div className='flex flex-col justify-center  items-center py-10 px-3'>
+            <h1 className='text-center text-2xl md:text-4xl font-bold my-4  '>Add add your visa</h1>
+            <div className="card  w-full  shrink-0 shadow-2xl max-w-[600px]">
                 <form onSubmit={handleForm} className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -67,47 +77,53 @@ const AddVisa = () => {
                         </label>
                         <input type="date" name='time' placeholder="Processing time" className="input input-bordered" required />
                     </div>
-                    <div>
-                        <input type="checkbox" name="" id="" value={'Valid passport'} /> Valid passport
-                    </div>
-                    <div>
-                        <input type="checkbox" name="" id="" value={'Recent passport-sized photograph'} /> Recent passport-sized photograph
-                    </div>
-                    <div>
-                        <input type="checkbox" name="" id="" value={'Valid passport'} /> Valid passport
-                    </div>
-                     
-                     <textarea className='border rounded-lg ' rows='4' name="" id="" placeholder='Description' required></textarea>
-
-                     <div className="form-control">
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Age</span>
+                            <span className="label-text">Age_restriction</span>
                         </label>
-                        <input type="number" name='age' placeholder="age" className="input input-bordered" required />
+                        <input type="number" name='age' placeholder="Age_restriction" className="input input-bordered" required />
                     </div>
-                     <div className="form-control">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Fee</span>
                         </label>
                         <input type="number" name='fee' placeholder="Fee" className="input input-bordered" required />
                     </div>
-                     <div className="form-control">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Validity</span>
                         </label>
                         <input type="text" name='validity' placeholder="Validity" className="input input-bordered" required />
                     </div>
-                     <div className="form-control">
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Application Method</span>
+                            <span className="label-text">Application_method</span>
                         </label>
-                        <input type="text" name='method' placeholder="Application Method" className="input input-bordered" required />
+                        <select className='border py-3 px-4 rounded-lg' name="method" id="">
+                            <option value="Application_method.">Application_method</option>
+                            <option value="Online">Online</option>
+                            <option value="In-person">In-person</option>
+                        </select>
                     </div>
+
+
+
+
+                    <div>
+                        <input type="checkbox" name="passpord" id="" value={'Valid passport'} /> Valid passport
+                    </div>
+                    <div>
+                        <input type="checkbox" name="photograph" id="" value={'Recent passport-sized photograph'} /> Recent passport-sized photograph
+                    </div>
+                    <div>
+                        <input type="checkbox" name="applicationForm" id="" value={'Visa application form'} /> Visa application form
+                    </div>
+
+                    <textarea className='border rounded-lg px-3' rows='4' name="discrip" id="" placeholder='Description' required></textarea>
 
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Add Visa</button>
                     </div>
-                    
                 </form>
             </div>
         </div>
