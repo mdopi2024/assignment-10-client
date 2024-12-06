@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Visacard = ({ visa }) => {
     const{_id,name,photo,visaType,discrip,time}=visa
-    console.log(visa)
+
     return (
         <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 ">
             <figure>
