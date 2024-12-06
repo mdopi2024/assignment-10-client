@@ -26,7 +26,7 @@ const LogIn = () => {
         .then(result=>{
             navigate('/')
         }).catch(error=>{
-            setShowError(error)
+         console.log(error)
         })
     }
 

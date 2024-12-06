@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import logo from '../../assets/plain.avif'
+import { FaRegUserCircle } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -68,7 +69,7 @@ const Header = () => {
                     user ? <div className='flex justify-center items-center gap-2'>
                         <button onClick={handleLogOut} className='btn btn-outline btn-primary text-white font-bold'><span className='text-black'>log Out</span></button>
                         <div>
-                            {user?.photoURL? <img className='w-12 h-12 rounded-full object-cover' src={user?. photoURL} alt="" /> :<LuCircleUserRound /> }
+                            {user?.photoURL? <img className='w-12 h-12 rounded-full object-cover' src={user?. photoURL} alt="" /> :<FaRegUserCircle /> }
                         </div>
                         
 
