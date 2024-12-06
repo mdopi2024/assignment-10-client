@@ -5,7 +5,7 @@ const Visacard = ({ visa }) => {
     const{_id,name,photo,visaType,discrip,time}=visa
 
     return (
-        <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 ">
+        <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 border ">
             <figure>
                 <img className='w-full h-[200px] object-cover'
                     src={photo}
