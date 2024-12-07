@@ -5,6 +5,8 @@ import MyAddedVisaCard from '../components/MyAddedVisaCard';
 const MYAddedVisa = () => {
     const {user}=useContext(AuthContext)
     const [addeVisas,setAddedVisas]=useState([])
+    // const {setApplication}=useContext(AuthContext)
+    // setApplication([...addeVisas])
     
     useEffect(()=>{
       fetch(`http://localhost:5000/visa/${user.email}`)
