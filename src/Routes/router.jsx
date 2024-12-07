@@ -11,6 +11,7 @@ import AddVisa from "../Pages/AddVisa";
 import MYAddedVisa from "../Pages/MYAddedVisa";
 import VisaApplication from "../Pages/VisaApplication";
 import Details from "../Pages/Details";
+import Update from "../Pages/Update";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,16 @@ const router = createBrowserRouter([
         {
           path:'/visaapplicatin',
           element:<PrivateRoute><VisaApplication></VisaApplication></PrivateRoute>
+        },
+        {
+          path:'/details/:id',
+          element:<PrivateRoute><Details></Details></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/visas/${params.id}`)
+        },
+        {
+          path:'/update/:id',
+          element:<PrivateRoute><Update></Update></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/visas/${params.id}`)
         }
 
       ],
@@ -55,10 +66,6 @@ const router = createBrowserRouter([
       path:'/forgetPass',
       element:<ForgetPass></ForgetPass>
     },
-    {
-      path:'/details/:id',
-      element:<PrivateRoute><Details></Details></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/visas/${params.id}`)
-    }
+   
   ]);
   export default router
