@@ -8,7 +8,7 @@ const Details = () => {
     return (
         <div>
             <div>
-                <Modal></Modal>
+                <Modal singleVisa={singleVisa}></Modal>
             </div>
             <h1 className='text-center text-3xl md:text-4xl text-blue-700 font-bold my-14'>All details about  {singleVisa.name}</h1>
 

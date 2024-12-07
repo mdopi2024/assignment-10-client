@@ -1,7 +1,8 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const Modal = () => {
+const Modal = ({singleVisa}) => {
+    const { name, photo, visaType, time, email, age, validity, method, passpord, photograph, applicationForm, discrip } = singleVisa
     const handleForm = e => {
         e.preventDefault()
         const form = e.target;
@@ -10,7 +11,7 @@ const Modal = () => {
         const lastName = form.lastName.value;
         const date = form.date.value;
         const fee = form.fee.value;
-        const myVisaApplication = { email, firstName, lastName, date, fee }
+        const myVisaApplication = { email, firstName, lastName, date, fee,name,photo,visaType,time,caches,method }
         fetch('http://localhost:5000/myvisa', {
             method: 'POST',
             headers: {

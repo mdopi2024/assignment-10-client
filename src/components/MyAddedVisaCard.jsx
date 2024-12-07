@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { data, Link } from 'react-router-dom';
 import Update from '../Pages/Update';
 import Swal from 'sweetalert2';
 
-const MyAddedVisaCard = ({ addeVisa }) => {
+const MyAddedVisaCard = ({ addeVisa,addeVisas,setAddedVisas }) => {
     const { _id, name, photo, visaType, discrip, time, fee, validity, method } = addeVisa;
     const [update, setUpdate] = useState({});
+    console.log(addeVisas)
 
 
     const hanaleModal = (visa) => {
@@ -69,6 +69,9 @@ const MyAddedVisaCard = ({ addeVisa }) => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                               });
+                              const filter = addeVisas.filter(visa=>visa._id !== id)
+                              console.log(filter)
+                              setAddedVisas(filter)
                         }
                     })
             }
