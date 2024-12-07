@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 
 const Update = ({update}) => {
-    console.log(update.name)
+    // console.log(update.name)
  
     
     return (
