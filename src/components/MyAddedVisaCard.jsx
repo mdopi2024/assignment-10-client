@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const MyAddedVisaCard = ({ addeVisa,addeVisas,setAddedVisas }) => {
     const { _id, name, photo, visaType, discrip, time, fee, validity, method } = addeVisa;
     const [update, setUpdate] = useState({});
-    console.log(addeVisas)
+    
 
 
     const hanaleModal = (visa) => {
