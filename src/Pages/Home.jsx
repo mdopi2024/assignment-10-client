@@ -15,16 +15,20 @@ import { useLoaderData } from 'react-router-dom';
 import LatestVisa from '../components/LatestVisa';
 import { Typewriter } from 'react-simple-typewriter'
 import { Fade,Zoom,Bounce } from "react-awesome-reveal";
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 
 const Home = () => {
     const visas = useLoaderData()
+    const {toggleValue}=useContext(AuthContext)
+    console.log(toggleValue)
 
 
     return (
-        <div>
-            <Bounce duration={2000}><p className='text-center text-3xl md:text-4xl font-bold my-10'>Find the Right Visa for Your Journey </p></Bounce>
+        <div className={`${toggleValue && 'bg-black'}`}>
+            <Bounce duration={2000}><p className={`text-center text-3xl md:text-4xl font-bold py-10 ${toggleValue && 'text-blue-800'}`}>Find the Right Visa for Your Journey </p></Bounce>
             <div className='mx-5 md:mx-10 my-16 relative'>
             <div className='h-30 z-20 absolute top-14 left-10 w-[300px] text-blue-800'>
                     <Typewriter words={['Our visa navigation website is your ultimate companion for managing and simplifying visa-related processes. Whether you','re planning to travel, study, work, or settle abroad, we provide all the tools, resources, and personalized guidance you need to navigate the complexities of visa applications effortlessly']} loop={true} deleteSpeed={20}  typeSpeed={50}></Typewriter>
@@ -94,7 +98,7 @@ const Home = () => {
                 </div>
             </div>
             {/* your facilites */}
-            <div className='my-16'>
+            <div className='py-16'>
                 <h1 className='my-6 text-center text-3xl md:text-4xl font-bold text-blue-700'>Our Abailable Facilites</h1>
 
 

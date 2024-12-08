@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const gooleProvider = new GoogleAuthProvider;
     const [user, setUser] = useState(null)
     const [loader,setLoader]=useState(true)
+    const [toggleValue,setToggleValue]=useState(false)
     console.log(user)
     const googleLogIn = () => {
         setLoader(true)
@@ -53,6 +54,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loader,
+        toggleValue,
+        setToggleValue,
         googleLogIn,
         singOutUser,
         registerWithEmal,

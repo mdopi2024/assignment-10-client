@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import logo from '../../assets/plain.avif'
 import { FaRegUserCircle } from 'react-icons/fa';
 
 
+
 const Header = () => {
-    const { user, singOutUser } = useContext(AuthContext)
+    const { user, singOutUser,toggleValue,setToggleValue } = useContext(AuthContext)
     const link = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>Home</NavLink></li>
         <li><NavLink to='/allvisa' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>All Visas</NavLink></li>
@@ -23,6 +24,11 @@ const Header = () => {
             }).catch(error => {
                 console.log(error.code)
             })
+    }
+  
+   
+    const handleToggle=()=>{
+         setToggleValue(!toggleValue)
     }
     return (
         <div className="navbar bg-[#0056B3]">
@@ -65,13 +71,18 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
+                <div className="form-control">
+                    <label className="label cursor-pointer">
+                        <input onClick={handleToggle} type="checkbox" className="toggle" defaultChecked />
+                    </label>
+                </div>
                 {
                     user ? <div className='flex justify-center items-center gap-2'>
                         <button onClick={handleLogOut} className='btn btn-outline btn-primary text-white font-bold'><span className='text-black'>log Out</span></button>
                         <div>
-                            {user?.photoURL? <img className='w-12 h-12 rounded-full object-cover' src={user?. photoURL} alt="" /> :<FaRegUserCircle /> }
+                            {user?.photoURL ? <img className='w-12 h-12 rounded-full object-cover' src={user?.photoURL} alt="" /> : <FaRegUserCircle />}
                         </div>
-                        
+
 
                     </div>
                         :
