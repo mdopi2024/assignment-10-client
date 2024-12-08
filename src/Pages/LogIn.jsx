@@ -6,14 +6,15 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const LogIn = () => {
     const {googleLogIn,logInWithEmail}=useContext(AuthContext)
     const navigate = useNavigate()
+    const [err,setErr]=useState(null)
    
-
+    
     const handleGoogleLogIn= ()=>{
          googleLogIn()
          .then(result=>{
            navigate('/')
          }).catch(error=>{
-            setShowError(error.code)
+           setErr(error.code)
          })
     }
 
@@ -26,7 +27,7 @@ const LogIn = () => {
         .then(result=>{
             navigate('/')
         }).catch(error=>{
-         console.log(error)
+         setErr(error.code)
         })
     }
 
@@ -48,10 +49,13 @@ const LogIn = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label">
-                                <Link to='/forgetPass' className="label-text-alt link link-hover">Forgot password?</Link>
+                                <button className="label-text-alt link link-hover">Forgot password?</button>
+                                {/* <Link to='/forgetPass' className="label-text-alt link link-hover">Forgot password?</Link> */}
                             </label>
                         </div>
-
+                          <div>
+                            {err && <p className='text-center font-semibold text-red-600'>{err}</p>}
+                          </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>

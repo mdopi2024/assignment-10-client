@@ -82,7 +82,7 @@ const Header = () => {
                         <div>
                             {user?.photoURL ? <div className='group'>
                                 <p className='absolute top-1 right-2 hidden group-hover:block font-semibold'>{user.displayName}</p>
-                                <img  className='w-12 h-12 rounded-full object-cover' src={user?.photoURL} alt="" /></div> : <FaRegUserCircle />
+                                <img  className='w-12 h-12 rounded-full object-cover' src={user?.photoURL} alt="" /></div> : <FaRegUserCircle className='text-4xl' />
                             }
                         </div>
 

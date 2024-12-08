@@ -79,13 +79,13 @@ const MyAddedVisaCard = ({ addeVisa,addeVisas,setAddedVisas }) => {
     }
 
     return (
-        <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 border">
+        <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 mb-10 border">
             <div>
                 <Update update={update}></Update>
             </div>
             <figure>
                 <img
-                    className="w-full h-[200px] object-cover"
+                    className="w-full h-[200px] rounded-xl object-cover"
                     src={photo}
                     alt={name}
                 />
