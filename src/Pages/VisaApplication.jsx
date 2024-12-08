@@ -14,7 +14,7 @@ const VisaApplication = () => {
        search.preventDefault()
        const form=search.target;
        const country = form.country.value
-       fetch(`http://localhost:5000/myvisa?search=${country}`)
+       fetch(`https://assingment-10-server-psi.vercel.app/myvisa?search=${country}`)
        .then(res=>res.json())
        .then(data=>{
         setApplication(data);

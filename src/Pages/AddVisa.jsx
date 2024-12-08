@@ -25,7 +25,7 @@ const AddVisa = () => {
 
         const email = user.email
         const visa = { name, photo, visaType, time, email,age,validity,method,passpord,photograph,applicationForm,discrip,fee }
-        fetch('http://localhost:5000/visas', {
+        fetch('https://assingment-10-server-psi.vercel.app/visas', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

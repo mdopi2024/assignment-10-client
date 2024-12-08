@@ -6,7 +6,7 @@ const MYAddedVisa = () => {
     const {user}=useContext(AuthContext)
     const [addeVisas,setAddedVisas]=useState([])
     useEffect(()=>{
-      fetch(`http://localhost:5000/visa/${user.email}`)
+      fetch(`https://assingment-10-server-psi.vercel.app/visa/${user.email}`)
       .then(res=>res.json())
       .then(data=>{
         setAddedVisas(data)

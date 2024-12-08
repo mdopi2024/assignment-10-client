@@ -15,7 +15,7 @@ const MyApplicationVisaCard = ({ card,application,setApplication }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myvisa/${id}`, {
+                fetch(`https://assingment-10-server-psi.vercel.app/myvisa/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
