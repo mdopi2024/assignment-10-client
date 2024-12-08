@@ -12,11 +12,13 @@ import MYAddedVisa from "../Pages/MYAddedVisa";
 import VisaApplication from "../Pages/VisaApplication";
 import Details from "../Pages/Details";
 import Update from "../Pages/Update";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',

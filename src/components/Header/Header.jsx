@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import logo from '../../assets/plain.avif'
+import logo from '../../assets/logo2.png'
 import { FaRegUserCircle } from 'react-icons/fa';
 
 
@@ -57,9 +57,9 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <div className='flex justify-center items-center gap-5'>
-                    <p className="btn btn-ghost text-xl text-white">NextStep Visa</p>
-                    <img className='w-20 h-20 object-cover' src={logo} alt="" />
+                <div className='flex justify-center items-center '>
+                    <p className="btn btn-ghost text-xl text-black">NextStep Visa</p>
+                    <img className='w-20 h-20 object-cover ' src={logo} alt="" />
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -80,7 +80,10 @@ const Header = () => {
                     user ? <div className='flex justify-center items-center gap-2'>
                         <button onClick={handleLogOut} className='btn btn-outline btn-primary text-white font-bold'><span className='text-black'>log Out</span></button>
                         <div>
-                            {user?.photoURL ? <img className='w-12 h-12 rounded-full object-cover' src={user?.photoURL} alt="" /> : <FaRegUserCircle />}
+                            {user?.photoURL ? <div className='group'>
+                                <p className='absolute top-1 right-2 hidden group-hover:block font-semibold'>{user.displayName}</p>
+                                <img  className='w-12 h-12 rounded-full object-cover' src={user?.photoURL} alt="" /></div> : <FaRegUserCircle />
+                            }
                         </div>
 
 
