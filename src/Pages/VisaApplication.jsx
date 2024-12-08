@@ -15,7 +15,7 @@ const VisaApplication = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-4 gap-8 px-5'>
         {
-            application.map(card=><MyApplicationVisaCard key={card._id} card={card}></MyApplicationVisaCard>)
+            application.map(card=><MyApplicationVisaCard key={card._id} card={card} application={application} setApplication={setApplication}></MyApplicationVisaCard>)
         }
         </div>
     );
