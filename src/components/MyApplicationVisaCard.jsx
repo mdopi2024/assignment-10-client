@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import Helmate from './Helmate';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const MyApplicationVisaCard = ({ card,application,setApplication }) => {
+    const {user} = useContext(AuthContext)
     const { _id, email, firstName, lastName, date, fee, name, photo, visaType, time, method } = card
     const handleCencel = id => {
         Swal.fire({
@@ -36,6 +39,7 @@ const MyApplicationVisaCard = ({ card,application,setApplication }) => {
     return (
         <div>
             <div className="card card-compact bg-[#D1E7FD] shadow-xl mt-5 border ">
+                <Helmate title='MY Appliciant visa'></Helmate>
                 <figure>
                     <img className='w-full h-[200px] object-cover'
                         src={photo}

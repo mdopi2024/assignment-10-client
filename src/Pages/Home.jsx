@@ -18,6 +18,7 @@ import { Fade,Zoom,Bounce } from "react-awesome-reveal";
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import AboutUs from '../components/AboutUs';
+import Helmate from '../components/Helmate';
 
 
 
@@ -29,6 +30,7 @@ const Home = () => {
 
     return (
         <div className={`${toggleValue && 'bg-black'}`}>
+            <Helmate title='Home'></Helmate>
             <Bounce duration={2000}><p className={`text-center text-3xl md:text-4xl mt-16 font-bold py-10 ${toggleValue && 'text-blue-800'}`}>Find the Right Visa for Your Journey </p></Bounce>
             <div className='mx-0 w-full   relative'>
             <div className='h-30 z-20 absolute top-14 left-10 w-[300px] text-blue-800'>

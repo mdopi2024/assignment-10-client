@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Modal from '../components/Modal';
+import Helmate from '../components/Helmate';
 
 const Details = () => {
     const singleVisa = useLoaderData()
     const { name, photo, visaType, time, email, age, validity, method, passpord, photograph, applicationForm, discrip } = singleVisa
     return (
         <div>
+            <Helmate title='Details'></Helmate>
             <div>
                 <Modal singleVisa={singleVisa}></Modal>
             </div>

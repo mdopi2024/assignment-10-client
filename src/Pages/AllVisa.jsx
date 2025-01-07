@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Visacard from '../components/Visacard';
+import Helmate from '../components/Helmate';
 
 const AllVisa = () => {
     const loadedVisa = useLoaderData()
@@ -19,6 +20,7 @@ const AllVisa = () => {
     return (
         <div>
             <div className='flex justify-end items-center'>
+                <Helmate title='All Visa'></Helmate>
                 <div className="dropdown mr-10 my-2">
                     <div tabIndex={0} role="button" className="btn m-1 border border-[#007BFF] hover:bg-[#0056B3]">Serach by Vist Type</div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">

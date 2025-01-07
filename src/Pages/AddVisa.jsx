@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { data } from 'autoprefixer';
 import Swal from 'sweetalert2';
+import Helmate from '../components/Helmate';
 
 const AddVisa = () => {
     const { user } = useContext(AuthContext)
@@ -46,6 +47,7 @@ const AddVisa = () => {
     }
     return (
         <div className='flex flex-col justify-center  items-center py-10 px-3'>
+            <Helmate title='Add Visa'></Helmate>
             <h1 className='text-center text-2xl md:text-4xl font-bold my-4  '>Add add your visa</h1>
             <div className="card  w-full  shrink-0 shadow-2xl max-w-[600px]">
                 <form onSubmit={handleForm} className="card-body">

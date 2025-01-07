@@ -58,8 +58,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='flex justify-center items-center '>
+                <img className='w-20 h-20 object-cover ' src={logo} alt="" />
                     <p className="btn btn-ghost text-xl text-black">NextStep Visa</p>
-                    <img className='w-20 h-20 object-cover ' src={logo} alt="" />
+                  
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
