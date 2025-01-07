@@ -32,7 +32,7 @@ const MyAddedVisaCard = ({ addeVisa,addeVisas,setAddedVisas }) => {
         const updateData = { name, photo, visaType, time, age, validity, method, passpord, photograph, applicationForm, discrip, fee }
         // console.log(updateData)
 
-        fetch(`https://assingment-10-server-psi.vercel.app/visas/${update._id}`, {
+        fetch(`http://localhost:5000/visas/${update._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -58,7 +58,7 @@ const MyAddedVisaCard = ({ addeVisa,addeVisas,setAddedVisas }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://assingment-10-server-psi.vercel.app/visas/${id}`, {
+                fetch(`http://localhost:5000/visas/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

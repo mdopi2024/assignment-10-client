@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         {
             path:'/',
             element:<Home></Home>,
-            loader:()=>fetch('https://assingment-10-server-psi.vercel.app/visas')
+            loader:()=>fetch('http://localhost:5000/visas')
         },
         {
             path:'/login',
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         {
           path:'/allvisa',
           element:<AllVisa></AllVisa>,
-          loader:()=>fetch(`https://assingment-10-server-psi.vercel.app/visas`)
+          loader:()=>fetch(`http://localhost:5000/visas`)
         },
         {
           path:'/addvisa',
@@ -49,17 +49,17 @@ const router = createBrowserRouter([
         {
           path:'/visaapplicatin',
           element:<PrivateRoute><VisaApplication></VisaApplication></PrivateRoute>,
-          loader:()=>fetch('https://assingment-10-server-psi.vercel.app/myvisa')
+          loader:()=>fetch('http://localhost:5000/myvisa')
         },
         {
           path:'/details/:id',
           element:<PrivateRoute><Details></Details></PrivateRoute>,
-          loader:({params})=>fetch(`https://assingment-10-server-psi.vercel.app/visas/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/visas/${params.id}`)
         },
         {
           path:'/update/:id',
           element:<PrivateRoute><Update></Update></PrivateRoute>,
-          loader:({params})=>fetch(`https://assingment-10-server-psi.vercel.app/visas/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/visas/${params.id}`)
         }
 
       ],

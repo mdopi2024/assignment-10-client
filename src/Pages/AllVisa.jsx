@@ -7,7 +7,7 @@ const AllVisa = () => {
     const [visas, setVisas] = useState(loadedVisa)
 
     const handleSerch=serch=>{
-       fetch(`https://assingment-10-server-psi.vercel.app/visas?search=${serch}`)
+       fetch(`http://localhost:5000/visas?search=${serch}`)
        .then(res=>res.json())
        .then(data=>{
        if(data){

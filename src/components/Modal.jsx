@@ -12,7 +12,7 @@ const Modal = ({singleVisa}) => {
         const date = form.date.value;
         const fee = form.fee.value;
         const myVisaApplication = { email, firstName, lastName, date, fee,name,photo,visaType,time,caches,method }
-        fetch('https://assingment-10-server-psi.vercel.app/myvisa', {
+        fetch('http://localhost:5000/myvisa', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
