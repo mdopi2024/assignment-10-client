@@ -17,6 +17,7 @@ import { Typewriter } from 'react-simple-typewriter'
 import { Fade,Zoom,Bounce } from "react-awesome-reveal";
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import AboutUs from '../components/AboutUs';
 
 
 
@@ -54,12 +55,15 @@ const Home = () => {
             </div>
             <div>
                 <h1 className='my-6 text-center text-3xl md:text-4xl font-bold text-blue-700'>Latest Visa Added</h1>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-10 px-6 pb-16 '>
+                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 px-6 pb-16 '>
                     {
                         visas.slice(-6).map(visa => <LatestVisa key={visa._id} visa={visa}></LatestVisa>)
                     }
                 </div>
             </div>
+
+            {/* about us */}
+            <AboutUs></AboutUs>
 
             {/* abilable  offers */}
             <div className='my-7'>
@@ -97,6 +101,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            
+
+
             {/* your facilites */}
             <div className='py-16'>
                 <h1 className='my-6 text-center text-3xl md:text-4xl font-bold text-blue-700'>Our Abailable Facilites</h1>
