@@ -10,10 +10,12 @@ const Header = () => {
     const { user, singOutUser,toggleValue,setToggleValue } = useContext(AuthContext)
     const link = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>Home</NavLink></li>
-        <li><NavLink to='/allvisa' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>All Visas</NavLink></li>
+       <div className={ ` flex items-center ${user? 'block' : 'hidden'}`}>
+       <li><NavLink to='/allvisa' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>All Visas</NavLink></li>
         <li><NavLink to='/addvisa' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>Add Visa</NavLink></li>
         <li><NavLink to='/myaddedvisa' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>My Added Visa</NavLink></li>
         <li><NavLink to='/visaapplicatin' className={({ isActive }) => isActive ? '!bg-white !text-blue-500 font-bold' : ''}>My Visa applications</NavLink></li>
+       </div>
     </>
     const navigate = useNavigate()
     const handleLogOut = () => {
